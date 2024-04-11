@@ -69,7 +69,7 @@
       - "{{ item }}"
       - --strip-components=1
   loop:
-    - "solr-{{ prometheus_solr_exporter_version }}/contrib/prometheus-exporter"
+    - "solr-{{ prometheus_solr_exporter_version }}{{prometheus_solr_exporter_archive_path}}"
     - "solr-{{ prometheus_solr_exporter_version }}/dist"
     - "solr-{{ prometheus_solr_exporter_version }}/server/resources"
     - "solr-{{ prometheus_solr_exporter_version }}/server/solr-webapp/webapp/WEB-INF/lib"
