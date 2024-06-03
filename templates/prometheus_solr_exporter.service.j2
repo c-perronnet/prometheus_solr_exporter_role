@@ -7,19 +7,18 @@ User={{ prometheus_solr_exporter_user }}
 Group={{ prometheus_solr_exporter_group }}
 Type=simple
 Environment='JAVA_OPTS=-Dlog4j2.formatMsgNoLookups=true'
-ExecStart={{ prometheus_solr_exporter_installation_dir }}/contrib/prometheus-exporter/bin/solr-exporter \
+ExecStart={{ prometheus_solr_exporter_installation_dir }}/prometheus-exporter/bin/solr-exporter \
             --port {{ prometheus_solr_exporter_port }} \
             {% if prometheus_solr_exporter_solr_mode == 'standalone' %}
             --baseurl {{ prometheus_solr_exporter_solr_baseurl }} \
             {% else %}
             --zkhost {{ prometheus_solr_exporter_zookeeper_host }} \
             {% endif %} \
-            --config-file {{ prometheus_solr_exporter_installation_dir }}/contrib/prometheus-exporter/conf/solr-exporter-config.xml \
+            --config-file {{ prometheus_solr_exporter_installation_dir }}/prometheus-exporter/conf/solr-exporter-config.xml \
             --num-threads {{ prometheus_solr_exporter_threads }}
 Restart=on-failure
 RestartSec=5s
 PrivateTmp={{ prometheus_solr_exporter_private_tmp }}
-
 
 [Install]
 WantedBy=multi-user.target
