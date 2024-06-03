@@ -72,5 +72,6 @@
     - "solr-{{ prometheus_solr_exporter_version }}{{prometheus_solr_exporter_archive_path}}"
     - "solr-{{ prometheus_solr_exporter_version }}/server/resources"
     - "solr-{{ prometheus_solr_exporter_version }}/server/solr-webapp/webapp/WEB-INF/lib"
+    - "solr-{{ prometheus_solr_exporter_version }}/lib/ext"
     - "solr-{{ prometheus_solr_exporter_version }}/docs"
   when: solr_exporter_force_reinstall or solr_exporter_check is failed or 'Apache Solr ' + prometheus_solr_exporter_version not in solr_exporter_check.stdout
